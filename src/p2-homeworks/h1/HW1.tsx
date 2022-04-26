@@ -6,7 +6,7 @@ import avatar from "./dude.png";
 const messageData = {
   avatar: <img src={avatar} />,
   name: "Dmitriy",
-  message: "Hello dude!!! How is't going, man? You are really awesome!!!",
+  message: "Hello dude!!! How's it going, man? You are really awesome!!!",
   time: "22:00",
 };
 
