@@ -1,0 +1,51 @@
+.body {
+  display: flex;
+  margin: 20px;
+  padding: 10px;
+  font-family: "Neucha", cursive;
+  background-color: rgb(27, 244, 11);
+  width: 400px;
+  border-radius: 3%;
+}
+img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.block {
+  position: relative;
+  width: 390px;
+  height: 120px;
+  border-radius: 10px 10px 10px 0;
+  background: lightgrey;
+  text-align: center;
+}
+
+.block::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 100%;
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(60px at top left, transparent 50%, lightgrey 51%)
+    no-repeat right top;
+}
+
+.name {
+  color: blue;
+  text-align: left;
+  padding: 5px;
+}
+.message {
+  text-align: left;
+  padding: 5px;
+  color: crimson;
+}
+.time {
+  opacity: 0.3;
+  text-align: right;
+  padding: 5px;
+}
