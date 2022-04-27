@@ -1,10 +1,10 @@
 import React from "react";
 import Message from "./Message";
-import css from "./Message.module.css";
+
 import avatar from "./dude.png";
 
 const messageData = {
-  avatar: <img src={avatar}/>,
+  avatar: <img src={avatar} alt='ava'/>,
   name: "Dmitriy",
   message: "Hello dude!!! How's it going, man? You are really awesome!!!",
   time: "22:00",

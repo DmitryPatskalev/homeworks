@@ -8,7 +8,7 @@ type MessageType = {
   time: string;
 };
 
-function Message(props: MessageType) {
+const Message: React.FC<MessageType> = (props) => {
   return (
     <div className={s.body}>
       <span className={s.ava}>{props.avatar}</span>
