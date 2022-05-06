@@ -1,37 +1,48 @@
 import React from 'react'
-import Affair from './Affair'
-import {AffairType} from './HW2'
+import {AffairType, FilterType} from "./HW2";
 
-type AffairsPropsType = { // need to fix any
-    data: any
-    setFilter: any
-    deleteAffairCallback: any
+type AffairsPropsType = {
+    title: string
+    affairs: AffairType[]
+    deleteAffairCallback: (name: number) => void
+    onClickHundler: (name: FilterType) => void
+
 }
 
 function Affairs(props: AffairsPropsType) {
-    const mappedAffairs = props.data.map((a: AffairType) => (
-        <Affair // should work
-            key={a._id} // кеи ОБЯЗАТЕЛЬНЫ в 99% - так что лучше их писать всегда при создании компонент в мапе
-            affair={a}
-            deleteAffairCallback={props.deleteAffairCallback}
-        />
-    ))
+    let resultAffair = props.affairs.map((elem, index) => {
+        let remove = () => props.deleteAffairCallback(elem.id)
+        return <ul>
+            <li key={index}>
+                <span>{elem.name}--</span>
+                <span>{elem.priority}</span>
+                <button onClick={remove}>x</button>
+            </li>
+        </ul>
+    })
 
-    const setAll = () => {} // need to fix
-    const setHigh = () => {}
-    const setMiddle = () => {}
-    const setLow = () => {}
+    const setAll = () => {
+        props.onClickHundler('all')
+    }
+    const setHigh = () => {
+        props.onClickHundler('high')
+    }
+    const setMiddle = () => {
+        props.onClickHundler('middle')
+    }
+    const setLow = () => {
+        props.onClickHundler('low')
+    }
 
     return (
-        <div>
-
-            {mappedAffairs}
-
-            <button onClick={setAll}>All</button>
-            <button onClick={setHigh}>High</button>
-            <button onClick={setMiddle}>Middle</button>
-            <button onClick={setLow}>Low</button>
-        </div>
+      <div>
+          <h3>{props.title}</h3>
+          {resultAffair}
+          <button onClick={setAll}>All</button>
+          <button onClick={setHigh}>High</button>
+          <button onClick={setMiddle}>Middle</button>
+          <button onClick={setLow}>Low</button>
+      </div>
     )
 }
 
