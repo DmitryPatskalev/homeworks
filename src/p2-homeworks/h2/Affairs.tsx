@@ -12,8 +12,8 @@ type AffairsPropsType = {
 function Affairs(props: AffairsPropsType) {
     let resultAffair = props.affairs.map((elem, index) => {
         let remove = () => props.deleteAffairCallback(elem.id)
-        return <ul>
-            <li key={index}>
+        return <ul key={index}>
+            <li>
                 <span>{elem.name}--</span>
                 <span>{elem.priority}</span>
                 <button onClick={remove}>x</button>
