@@ -1,11 +1,9 @@
 .sendForm {
-
+    margin-top: 20px;
 }
 
 .textarea {
-    width: 200px;
-    height: 100px;
-    margin-top: 20px;
+
 
 }
 
@@ -14,7 +12,7 @@
     height: 40px;
     width: 60px;
     border-radius: 5px;
-    border:none;
+    border: none;
     font-size: 16px;
 
 }
@@ -23,6 +21,7 @@
     background-color: #0059b3;
     color: white;
 }
+
 .button:active {
     background-color: #00cc22;
 }
