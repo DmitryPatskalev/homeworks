@@ -1,15 +1,15 @@
-import React from 'react'
+import React, {ChangeEvent} from 'react'
 import {pureAddUser} from '../GreetingContainer'
 
-let name: any
-const setName = (a: any) => {
+let name: string
+const setName = (a: string) => {
     name = a
 }
-let error: any
-const setError = (a: any) => {
+let error: null | string
+const setError = (a: null | string) => {
     error = a
 }
-let added: any
+let added: boolean
 const addUserCallback = () => {
     added = true
 }
