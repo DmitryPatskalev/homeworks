@@ -9,7 +9,7 @@ type GreetingPropsType = {
     onEnter: (e: KeyboardEvent<HTMLInputElement>) => void // need to fix any
     error: null | string // need to fix any
     totalUsers: number // need to fix any
-    lastUserName?: number | undefined // need to fix any
+    lastUserName?: string [] // need to fix any
 }
 
 // презентационная компонента (для верстальщика)
@@ -60,9 +60,9 @@ const Greeting: React.FC<GreetingPropsType> = (
                 </div>
             </div>
 
-            {lastUserName && (
+            {lastUserName?.length && (
                 <div className={s.greeting}>
-                    Привет <span id={'hw3-last-user'}>{lastUserName}</span>!
+                    Привет <span id={'hw3-last-user'}>{lastUserName[lastUserName.length - 1]}</span>!
                 </div>
             )}
         </div>
