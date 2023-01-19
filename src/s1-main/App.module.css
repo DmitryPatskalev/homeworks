@@ -1,11 +1,11 @@
 .App {
     --header_height: 60px;
     text-align: center;
-    margin-left: 100px;
+
 }
 
 .hw {
-
+    margin-left: 10px;
 }
 
 .hwTitle {

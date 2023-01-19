@@ -1,4 +1,7 @@
 .button {
+    padding: 5px 24px;
+    border-radius: 3px;
+    border: none;
 }
 
 .disabled {
@@ -8,6 +11,7 @@
 }
 
 .default {
+
 }
 
 .red {
