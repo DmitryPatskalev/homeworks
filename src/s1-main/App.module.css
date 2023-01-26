@@ -5,15 +5,20 @@
 }
 
 .hw {
-    margin-left: 10px;
+    margin: 0 35px 32px 35px;
 }
 
 .hwTitle {
+    justify-content: left;
+    align-items: end;
+    padding-left: 70px;
+    padding-bottom: 10px;
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 22px;
-    line-height: 27px;
-    margin-bottom: 20px;
-
+    margin-bottom: 37px;
+    border: 1px solid #D9D9D9;
+    height: 84px;
+    display: flex;
 }
