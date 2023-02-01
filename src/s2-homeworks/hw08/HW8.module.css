@@ -1,23 +1,73 @@
-.item {
+
+.users {
+    display: flex;
+    flex-direction: column;
 }
+
+.users tbody tr, th {
+    font-size: 14px;
+    line-height: 20px;
+    color: #444441;
+    border-top: 1px solid #E5E5E5;
+
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 606px;
+    height: 36px;
+}
+
 
 .item:last-of-type {
 }
 
-.users {
+.buttonsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+    width: 606px;
 }
 
-.buttonsContainer {
+.buttonsContainer button {
+    margin-left: 10px;
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
 }
 
 .thead {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 606px;
+    height: 36px;
+    background: #E5E5E5;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.thead tr {
+    display: flex;
+    flex-direction: row;
 }
 
 .nameCol {
+    display: flex;
+    justify-content: center;
+    width: 100px;
 }
 
+
 .ageCol {
+    display: flex;
+    justify-content: center;
+    width: 400px;
 }
