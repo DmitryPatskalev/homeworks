@@ -12,7 +12,7 @@ function Clock() {
 
 	 const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 	 const month =
-		 ['January', 'February', 'March', 'April', 'May', 'June',
+		 ['January', 'February', 'March','April', 'May', 'June',
 				'July', 'August', 'September', 'October', 'November', 'December',
 		 ]
 	 const start = () => {
@@ -49,7 +49,7 @@ function Clock() {
 
 	 // день недели на английском, месяц на английском (https://learn.javascript.ru/intl#intl-datetimeformat)
 	 const stringDay = days[date.getDay() - 1] || <br/> // пишут студенты
-	 const stringMonth = `${get2Digit(date.getDate())}.${get2Digit(date.getMonth() + 1)}.${get2Digit(date.getFullYear())}` ||
+	 const stringMonth = date.toLocaleDateString('ru-Ru') ||
      <br/> // пишут студенты
 
 	 return (
