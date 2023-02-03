@@ -6,12 +6,11 @@
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-size: 14px;
-
+    color: white;
 }
 
 .default {
     background: #0066CC;
-    color: white;
 }
 
 .default:hover {
@@ -24,7 +23,6 @@
 
 .red {
     background: #CC1439;
-    color: white;
 }
 
 .red:hover {
@@ -38,11 +36,10 @@
 
 .disabled {
     background: #004D99;
-    opacity: 0.5;
-    color: #002E5C;
 }
 
 .button:disabled {
+    opacity: 0.3;
 }
 
 .secondary {
