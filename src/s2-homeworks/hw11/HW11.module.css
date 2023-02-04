@@ -1,8 +1,20 @@
 .container {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
 }
 
 .wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+    margin: 25px 0;
+
 }
 
 .number {
+    margin: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
