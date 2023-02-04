@@ -1,3 +1,7 @@
-import s from './Loader.module.css'
+import spinner from './bll/spinner.svg'
 
-export const Loader = () => <div className={s.loader}/>
+export const Loader = () => {
+	 return <>
+			<img src={spinner} alt={'spinner'}/>
+	 </>
+}
