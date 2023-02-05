@@ -5,29 +5,24 @@ import {restoreState} from '../hw06/localStorage/localStorage'
 import SuperRange from './common/c7-SuperRange/SuperRange'
 
 /*
-* 1 - передать значения в оба слайдера
+* 1 - передать значения в оба слайдера +++
 * 2 - дописать типы и логику функции change
-* 3 - сделать стили в соответствии с дизайном
+* 3 - сделать стили в соответствии с дизайном +++
 * */
-const minDistance = 1;
+
 
 function HW11() {
 	 // for autotests // не менять // можно подсунуть в локалСторэдж нужные числа, чтоб увидеть как они отображаются
-	 const [value1, setValue1] = useState(restoreState<number[]>('hw11-value1', [0]))
-	 const [value2, setValue2] = useState(restoreState<number[]>('hw11-value2', [0, 100]))
+	 const [value1, setValue1] = useState(restoreState<number>('hw11-value1', 0))
+	 const [value2, setValue2] = useState(restoreState<number>('hw11-value2', 100))
 
-	 const change = (event: Event, newValue: number | number[], activeThumb: number) => {
-			if (!Array.isArray(newValue)) {
-				 return
+	 const change = (event: Event, newValue: number| number[]) => {
+			if(Array.isArray(newValue)){
+				 setValue1(newValue[0])
+				 setValue2(newValue[1])
+			}else {
+				 setValue1(newValue)
 			}
-			if (activeThumb === 0) {
-				 setValue2([Math.min(newValue[0], value2[1] - minDistance), value2[1]]);
-				 setValue1([Math.min(newValue[0], value2[0])]);
-			} else {
-				 setValue2([value2[0], Math.max(newValue[1], value2[0] + minDistance)]);
-
-			}
-
 			// пишет студент // если пришёл массив - сохранить значения в оба useState, иначе в первый
 	 }
 
@@ -50,15 +45,15 @@ function HW11() {
 								 />
 							</div>
 							<div className={s.wrapper}>
-								 <span id={'hw11-value-1'} className={s.number}>{value2[0]}</span>
+								 <span id={'hw11-value-1'} className={s.number}>{value1}</span>
 								 <SuperRange
 									 id={'hw11-double-slider'}
 									 // сделать так чтоб value1/2 изменялось // пишет студент
-									 value={value2}
+									 value={[value1,value2]}
 									 onChange={change}
 
 								 />
-								 <span id={'hw11-value-2'} className={s.number}>{value2[1]}</span>
+								 <span id={'hw11-value-2'} className={s.number}>{value2}</span>
 							</div>
 					 </div>
 				</div>
