@@ -52,6 +52,7 @@ const SuperSelect: React.FC<SuperSelectPropsType> = ({
             {mappedOptions}
         </select>
     )
+
 }
 
 export default SuperSelect
