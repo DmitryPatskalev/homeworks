@@ -20,11 +20,14 @@ function HW11() {
 			if(Array.isArray(newValue)){
 				 setValue1(newValue[0])
 				 setValue2(newValue[1])
+
 			}else {
 				 setValue1(newValue)
 			}
 			// пишет студент // если пришёл массив - сохранить значения в оба useState, иначе в первый
 	 }
+	 console.log(value1/1000)
+	 console.log(value2)
 
 	 return (
 		 <div id={'hw11'}>
@@ -40,6 +43,7 @@ function HW11() {
 									 onChange={change}
 
 
+
 									 // сделать так чтоб value1 изменялось // пишет студент
 
 								 />
@@ -51,6 +55,7 @@ function HW11() {
 									 // сделать так чтоб value1/2 изменялось // пишет студент
 									 value={[value1,value2]}
 									 onChange={change}
+
 
 								 />
 								 <span id={'hw11-value-2'} className={s.number}>{value2}</span>
