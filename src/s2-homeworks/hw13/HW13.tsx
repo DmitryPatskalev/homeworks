@@ -51,18 +51,18 @@ const HW13 = () => {
                 }
             })
             .catch((e: any) => {
+                setCode(e.response.data?.value)
                 setText(e.response.data?.errorText)
                 setInfo(e.response.data?.info)
 
                 switch (x) {
-
-                    case false :
-                        setCode('Ошибка 400!')
+                    case undefined:
+                        setCode('400')
                         setImage(error400)
                         break;
 
-                    case undefined:
-                        setCode('Ошибка 500!')
+                    case false :
+                        setCode('500')
                         setImage(error500)
                         break;
 
@@ -92,23 +92,25 @@ const HW13 = () => {
                         Send true
                     </SuperButton>
                     <SuperButton
+                      id={'hw13-send-undefined'}
+                      onClick={send(undefined)}
+                      xType={colorButtonDisabled}
+                      disabled={disabled}
+                      // дописать
+                    >
+                        Send false
+                    </SuperButton>
+
+                    <SuperButton
                         id={'hw13-send-false'}
                         onClick={send(false)}
                         xType={colorButtonDisabled}
                         disabled={disabled}
                         // дописать
                     >
-                        Send false
-                    </SuperButton>
-                    <SuperButton
-                        id={'hw13-send-undefined'}
-                        onClick={send(undefined)}
-                        xType={colorButtonDisabled}
-                        disabled={disabled}
-                        // дописать
-                    >
                         Send undefined
                     </SuperButton>
+
                     <SuperButton
                         id={'hw13-send-null'}
                         onClick={send(null)} // имитация запроса на не корректный адрес
