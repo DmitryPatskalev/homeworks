@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import s2 from '../../s1-main/App.module.css'
 import s from './HW13.module.css'
 import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
-import axios, {AxiosError} from 'axios'
+import axios from 'axios'
 import success200 from './images/200.svg'
 import error400 from './images/400.svg'
 import error500 from './images/500.svg'
@@ -94,7 +94,7 @@ const HW13 = () => {
 
                     <SuperButton
                       id={'hw13-send-false'}
-                      onClick={send(undefined)}
+                      onClick={send(false)}
                       xType={colorButtonDisabled}
                       disabled={disabled}
                       // дописать
@@ -104,7 +104,7 @@ const HW13 = () => {
 
                     <SuperButton
                       id={'hw13-send-undefined'}
-                      onClick={send(false)}
+                      onClick={send(undefined)}
                       xType={colorButtonDisabled}
                       disabled={disabled}
                       // дописать
