@@ -46,37 +46,38 @@ const HW13 = () => {
                         setImage(success200)
                         break;
 
+                    default:
+                        return x
+                }
+            })
+            .catch((e: any) => {
+                switch (x) {
                     case false :
                         setCode('Ошибка 400!')
-                        setText(res.data.errorText)
-                        setInfo(res.data.info)
+                        setText(e.response.data?.errorText)
+                        setInfo(e.response.data?.info)
                         setImage(error400)
                         break;
 
                     case undefined:
                         setCode('Ошибка 500!')
-                        setText(res.data.errorText)
-                        setInfo(res.data.info)
+                        setText(e.response.data?.errorText)
+                        setInfo(e.response.data?.info)
                         setImage(error500)
                         break;
 
                     case null:
                         setCode('Error!')
-                        setText(res.data.errorText)
-                        setInfo(res.data.info)
+                        setText(e.response.data?.errorText)
+                        setInfo(e.response.data?.info)
                         setImage(errorUnknown)
                         break;
-
                     default:
                         return x
                 }
-            })
-            .catch((e: AxiosError) => {
                 setInfo('')
-                setText(e.message)
                 // дописать
             })
-
     }
 
     return (
