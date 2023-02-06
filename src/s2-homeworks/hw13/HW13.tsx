@@ -25,6 +25,7 @@ const HW13 = () => {
     const colorButtonDisabled = disabled ? 'disabled' : 'secondary'
 
     const send = (x?: boolean | null) => () => {
+
         const url =
             x === null
                 ? 'https://xxxxxx.ccc' // имитация запроса на не корректный адрес
@@ -38,6 +39,7 @@ const HW13 = () => {
         axios
             .post(url, {success: x})
             .then((res) => {
+                console.log(res)
                 switch (x) {
                     case true:
                         setCode('Код 200!')
@@ -51,7 +53,7 @@ const HW13 = () => {
                 }
             })
             .catch((e: any) => {
-                setCode(e.response.data?.value)
+                setCode(e.response.status)
                 setText(e.response.data?.errorText)
                 setInfo(e.response.data?.info)
 
@@ -71,8 +73,6 @@ const HW13 = () => {
                         setImage(errorUnknown)
                         break;
                 }
-                setInfo('')
-                // дописать
             })
     }
 
@@ -91,8 +91,9 @@ const HW13 = () => {
                     >
                         Send true
                     </SuperButton>
+
                     <SuperButton
-                      id={'hw13-send-undefined'}
+                      id={'hw13-send-false'}
                       onClick={send(undefined)}
                       xType={colorButtonDisabled}
                       disabled={disabled}
@@ -102,14 +103,16 @@ const HW13 = () => {
                     </SuperButton>
 
                     <SuperButton
-                        id={'hw13-send-false'}
-                        onClick={send(false)}
-                        xType={colorButtonDisabled}
-                        disabled={disabled}
-                        // дописать
+                      id={'hw13-send-undefined'}
+                      onClick={send(false)}
+                      xType={colorButtonDisabled}
+                      disabled={disabled}
+                      // дописать
                     >
                         Send undefined
                     </SuperButton>
+
+
 
                     <SuperButton
                         id={'hw13-send-null'}
