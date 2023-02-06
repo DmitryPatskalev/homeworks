@@ -51,29 +51,25 @@ const HW13 = () => {
                 }
             })
             .catch((e: any) => {
+                setText(e.response.data?.errorText)
+                setInfo(e.response.data?.info)
+
                 switch (x) {
+
                     case false :
                         setCode('Ошибка 400!')
-                        setText(e.response.data?.errorText)
-                        setInfo(e.response.data?.info)
                         setImage(error400)
                         break;
 
                     case undefined:
                         setCode('Ошибка 500!')
-                        setText(e.response.data?.errorText)
-                        setInfo(e.response.data?.info)
                         setImage(error500)
                         break;
 
                     case null:
                         setCode('Error!')
-                        setText(e.response.data?.errorText)
-                        setInfo(e.response.data?.info)
                         setImage(errorUnknown)
                         break;
-                    default:
-                        return x
                 }
                 setInfo('')
                 // дописать

@@ -5,6 +5,7 @@
 .responseContainer {
     display: flex;
     flex-direction: row;
+    margin-top: 25px;
 }
 
 .imageContainer {
