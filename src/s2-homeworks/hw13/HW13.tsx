@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import s2 from '../../s1-main/App.module.css'
 import s from './HW13.module.css'
 import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
-import axios from 'axios'
+import axios, {AxiosError} from 'axios'
 import success200 from './images/200.svg'
 import error400 from './images/400.svg'
 import error500 from './images/500.svg'
@@ -10,11 +10,9 @@ import errorUnknown from './images/error.svg'
 
 /*
 * 1 - дописать функцию send
-* 2 - дизэйблить кнопки пока идёт запрос
-* 3 - сделать стили в соответствии с дизайном
+* 2 - дизэйблить кнопки пока идёт запрос +++
+* 3 - сделать стили в соответствии с дизайном +++
 * */
-
-
 
 
 const HW13 = () => {
@@ -23,7 +21,8 @@ const HW13 = () => {
     const [info, setInfo] = useState('')
     const [image, setImage] = useState('')
 
-	 const disabled = info === '...loading'
+    const disabled = info === '...loading'
+    const colorButtonDisabled = disabled ? 'disabled' : 'secondary'
 
     const send = (x?: boolean | null) => () => {
         const url =
@@ -32,24 +31,52 @@ const HW13 = () => {
                 : 'https://incubator-personal-page-back.herokuapp.com/api/3.0/homework/test'
 
         setCode('')
-        setImage('')
         setText('')
         setInfo('...loading')
+        setImage('')
 
         axios
             .post(url, {success: x})
             .then((res) => {
-                setCode('Код 200!')
-                setText('...всё ок) код 200 - обычно означает что скорее всего всё ок)')
-                setImage(success200)
+                switch (x) {
+                    case true:
+                        setCode('Код 200!')
+                        setText(res.data.errorText)
+                        setInfo(res.data.info)
+                        setImage(success200)
+                        break;
+
+                    case false :
+                        setCode('Ошибка 400!')
+                        setText(res.data.errorText)
+                        setInfo(res.data.info)
+                        setImage(error400)
+                        break;
+
+                    case undefined:
+                        setCode('Ошибка 500!')
+                        setText(res.data.errorText)
+                        setInfo(res.data.info)
+                        setImage(error500)
+                        break;
+
+                    case null:
+                        setCode('Error!')
+                        setText(res.data.errorText)
+                        setInfo(res.data.info)
+                        setImage(errorUnknown)
+                        break;
+
+                    default:
+                        return x
+                }
+            })
+            .catch((e: AxiosError) => {
                 setInfo('')
+                setText(e.message)
                 // дописать
-
             })
-            .catch((e) => {
-                // дописать
 
-            })
     }
 
     return (
@@ -61,50 +88,44 @@ const HW13 = () => {
                     <SuperButton
                         id={'hw13-send-true'}
                         onClick={send(true)}
-                        xType={'secondary'}
-												disabled={disabled}
+                        xType={colorButtonDisabled}
+                        disabled={disabled}
                         // дописать
-
                     >
                         Send true
                     </SuperButton>
                     <SuperButton
                         id={'hw13-send-false'}
-                        onClick={send(true)}
-                        xType={'secondary'}
+                        onClick={send(false)}
+                        xType={colorButtonDisabled}
                         disabled={disabled}
                         // дописать
-
                     >
                         Send false
                     </SuperButton>
                     <SuperButton
                         id={'hw13-send-undefined'}
                         onClick={send(undefined)}
-                        xType={'secondary'}
+                        xType={colorButtonDisabled}
                         disabled={disabled}
                         // дописать
-
                     >
                         Send undefined
                     </SuperButton>
                     <SuperButton
                         id={'hw13-send-null'}
                         onClick={send(null)} // имитация запроса на не корректный адрес
-                        xType={'secondary'}
+                        xType={colorButtonDisabled}
                         disabled={disabled}
                         // дописать
-
                     >
                         Send null
                     </SuperButton>
                 </div>
-
                 <div className={s.responseContainer}>
                     <div className={s.imageContainer}>
                         {image && <img src={image} className={s.image} alt="status"/>}
                     </div>
-
                     <div className={s.textContainer}>
                         <div id={'hw13-code'} className={s.code}>
                             {code}
