@@ -50,7 +50,11 @@ const HW15 = () => {
     const sendQuery = (params: any) => {
         setLoading(true)
         getTechs(params)
-            .then((res) => {
+            .then((res:any) => {
+                setTechs(res.data.techs)
+                setTotalCount(res.data.totalCount)
+                setLoading(false)
+
                 // делает студент
 
                 // сохранить пришедшие данные
