@@ -1,27 +1,61 @@
-.tech {
-    width: 50vw;
-}
 
-.developer {
-
+.techHeader, .developerHeader, .tech, .developer {
+    display: flex;
+    font-family: 'Roboto';
+    font-weight: 600;
+    font-size: 18px;
+    color: #000000;
 }
 
 .techHeader {
-    width: 50vw;
+    margin-left: 20px;
 }
 
 .developerHeader {
-
+    margin-right: 20px;
 }
 
 .row {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 600px;
+    height: 30px;
+    border-top: 1px solid #E5E5E5;
+
 }
+
+.tech, .developer {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.tech {
+    margin-left: 50px;
+}
+
+.developer {
+    margin-right: 50px;
+}
+
 
 .rowHeader {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 606px;
+    height: 36px;
+    background: #E5E5E5;
 }
 
 .loading {
 
+}
+
+.iconContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-left: 5px;
 }
