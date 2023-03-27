@@ -43,7 +43,7 @@ const HW15 = () => {
 	 const [page, setPage] = useState(1)
 	 const [count, setCount] = useState(4)
 	 const [idLoading, setLoading] = useState(false)
-	 const [totalCount, setTotalCount] = useState(100)
+	 const [totalCount, setTotalCount] = useState(36)
 	 const [searchParams, setSearchParams] = useSearchParams()
 	 const [techs, setTechs] = useState<TechType[]>([])
 
@@ -86,7 +86,7 @@ const HW15 = () => {
 
 			//
 	 }
-	 console.log(searchParams)
+
 
 	 const onChangeSort = (newSort: string) => {
 			setSort(newSort)
@@ -115,7 +115,7 @@ const HW15 = () => {
 			sendQuery({page: params.page, count: params.count})
 			setPage(+params.page || 1)
 			setCount(+params.count || 4)
-	 }, [])
+	 }, [page, count])
 
 	 const mappedTechs = techs.map(t => (
 		 <div key={t.id} className={s.row}>
